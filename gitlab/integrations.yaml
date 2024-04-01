@@ -4,6 +4,7 @@ docs: https://docs.gitlab.com/ee/api/oauth2.html
 description: GitLab is a web-based DevOps lifecycle tool that provides a Git repository manager providing wiki, issue-tracking and CI/CD pipeline features, using an open-source license, developed by GitLab Inc.
 logo: https://gitlab.com/assets/logo-911de323fa0def29aaf817fca33916653fc92f3ff31647ac41d2c39bbe243edb.svg
 categories: [DevSecOps]
+callback_url: https://github.com/themid6t/custom-api-auth
 
 auth schemes:
 // OAuth2 
@@ -26,4 +27,4 @@ auth schemes:
         displayName: Base URL
         description: "The base URL for Gitlab API requests. For more information, visit https://docs.gitlab.com/ee/api/oauth2.html"
         type: string
-        default: ${api endpoint URL of the app}
+        default: "https://gitlab.com/api/v4/"
