@@ -4,27 +4,27 @@ docs: https://docs.gitlab.com/ee/api/oauth2.html
 description: GitLab is a web-based DevOps lifecycle tool that provides a Git repository manager providing wiki, issue-tracking and CI/CD pipeline features, using an open-source license, developed by GitLab Inc.
 logo: https://gitlab.com/assets/logo-911de323fa0def29aaf817fca33916653fc92f3ff31647ac41d2c39bbe243edb.svg
 categories: [DevSecOps]
-callback_url: https://github.com/themid6t/custom-api-auth
+callback_url: https://backend.composio.dev/api/v1/auth-apps/add
 
-auth schemes:
-// OAuth2 
-	- scheme_name: gitlab_oauth
-		auth_mode: OAuth2
-		authorization_url: "https://gitlab.com/oauth"
+auth_schemes:
+  - scheme_name: gitlab_oauth
+    auth_mode: OAuth2
+    authorization_url: "https://gitlab.com/oauth"
     token_url: "https://gitlab.com/oauth/token"
     default_scopes: [""]
     scope_separator: ','
     token_response_metadata: [access_token, token_type, scope, expires_in, refresh_token]
-    token_access_request_method: 
-    authorization_params:
-        response_type: "code"
+    token_access_request_method: authorization_params
+    response_type: "code"
     token_params:
-        grant_type: "authorization_code"
-    proxy:
-      base_url: "{{base_url}}"
-    fields:
-      - name: base_url
-        displayName: Base URL
-        description: "The base URL for Gitlab API requests. For more information, visit https://docs.gitlab.com/ee/api/oauth2.html"
-        type: string
-        default: "https://gitlab.com/api/v4/"
+      grant_type: "authorization_code"
+
+proxy:
+  base_url: "{{base_url}}"
+
+fields:
+  - name: base_url
+    displayName: Base URL
+    description: "The base URL for Gitlab API requests. For more information, visit https://docs.gitlab.com/ee/api/oauth2.html"
+    type: string
+    default: "https://gitlab.com/api/v4/"
